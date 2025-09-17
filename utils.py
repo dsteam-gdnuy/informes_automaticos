@@ -1,6 +1,7 @@
 import json
 import snowflake.connector
 import smtplib
+import pandas as pd
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -48,9 +49,7 @@ def search_message(message: str) -> str:
     if message == "PAGNIFIQUE_PENETRACION":
 
         content= """
-            Hola, envío informe de % de penetracion de los productos pagnifique de la última semana, los archivos quedan en la siguiente ubicación:
-            
-            https://drive.google.com/drive/folders/1Ys4gGePqMJvS_7qYEwbK1iDLZYsGneWA?usp=sharing
+            Hola, envío informe de % de penetracion de los productos pagnifique de la última semana adjunto,
             
             Saludos.
         """
@@ -58,9 +57,7 @@ def search_message(message: str) -> str:
     elif message == "PAGNIFIQUE_RESULTADOS_PROMO":
 
         content = """
-            Hola, envío informe de promociones, el archivo queda en el siguiente repositorio:
-            
-            https://drive.google.com/drive/folders/1dPIaAcAZRuJ3rS1-LZz0LGnxHhwTBFkw?usp=sharing
+            Hola, envío informe de promociones adjunto,
             
             Saludos.
         """
@@ -68,9 +65,7 @@ def search_message(message: str) -> str:
     elif message == "PAGNIFIQUE_PENETRACION_MENSUAL":
 
         content= """
-            Hola, envío informe de % de penetracion de los productos pagnifique del último mes, los archivos quedan en la siguiente ubicación:
-            
-            https://drive.google.com/drive/folders/1Ys4gGePqMJvS_7qYEwbK1iDLZYsGneWA?usp=sharing
+            Hola, envío informe de % de penetracion de los productos pagnifique del último mes adjunto,
             
             Saludos.
         """
@@ -78,9 +73,7 @@ def search_message(message: str) -> str:
     elif message == "COMPARACION_PUNTOS_CLIENTES":
 
         content= """
-            Hola, envío comparación de puntos de clientes e información adicional, los archivos quedan en la siguiente ubicación:
-            
-            https://drive.google.com/drive/folders/1s2apC7R7u9SciMIko2IS6Hv8rrseqn9T?usp=sharing
+            Hola, envío comparación de puntos de clientes e información adicional adjunto,
             
             Saludos.
         """
@@ -88,9 +81,7 @@ def search_message(message: str) -> str:
     elif message == "EVOLUCION_SOCIOS":
 
         content= """
-            Hola, envío evolución de clientes, los archivos quedan en la siguiente ubicación:
-            
-            https://drive.google.com/drive/folders/1j7GjPaWyxLiL2SYX6LOJ6tPnSrElmoZ0?usp=sharing
+            Hola, envío evolución de clientes adjunto,
             
             Saludos.
         """
@@ -103,7 +94,12 @@ def search_message(message: str) -> str:
     
     return content
 
-def create_email(sender_address: str, receiver_address: str, sender_pass: str , message_type: str, subject: str) -> bool:
+def create_email(sender_address: str, 
+                 receiver_address: str, 
+                 sender_pass: str , 
+                 message_type: str, 
+                 subject: str,
+                 df: pd.DataFrame) -> bool:
     
     #Defino mensaje a incluir
     content = search_message(message_type)
@@ -116,6 +112,9 @@ def create_email(sender_address: str, receiver_address: str, sender_pass: str , 
 
     #Armo cuerpo de mail
     message.attach(MIMEText(content, 'plain'))
+
+    #Adjunto el dataframe como csv
+    attach_df_as_csv(message, df, filename=f"{message_type}.csv")
 
     #Llamo funcion para enviar mail
     envio = send_email(message= message, sender_address= sender_address, sender_pass= sender_pass)
@@ -140,3 +139,18 @@ def send_email(message: str, sender_address: str, sender_pass: str) -> bool:
     session.quit()
     
     return True
+
+def attach_df_as_csv(msg: MIMEMultipart, df: pd.DataFrame, filename: str) -> None:
+    # 1) Convertir DF -> CSV (en memoria)
+    csv_str = df.to_csv(index=False)             # agregá sep=';' si lo necesitás
+    csv_bytes = csv_str.encode("utf-8")          # a bytes para el payload
+
+    # 2) Armar el adjunto MIME
+    part = MIMEBase("text", "csv")
+    part.set_payload(csv_bytes)
+    encoders.encode_base64(part)                 # seguro para cualquier cliente
+    part.add_header("Content-Disposition", f'attachment; filename="{filename}"')
+    part.add_header("Content-Type", 'text/csv; charset="utf-8"')
+
+    # 3) Adjuntar al mensaje
+    msg.attach(part)

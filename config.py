@@ -4,7 +4,7 @@ configuration = {
             {
                 "NAME": "PAGNIFIQUE_PENETRACION",
                 "FUNCTION": "pagnifique_report",
-                "RECEIVER": "marcelo.ocampo@tata.com.uy, planeamiento@pagnifique.com.uy, mesadeoperaciones@pagnifique.com.uy, supervisores_plesir@pagnifique.com.uy, marcio.gonzalez@plus.uy",
+                "RECEIVER": "Diego.Mendez02@grupobimbo.com, Enzo.Baratella@grupobimbo.com, Noelia.Malacria@grupobimbo.com, Sabrina.Cabrera@grupobimbo.com, Damiana.Conde@grupobimbo.com, marcio.gonzalez@gdn.com.uy, marcelo.ocampo@gdn.com.uy",
                 #"RECEIVER": "marcelo.ocampo@tata.com.uy",
                 "SUBJECT": "Informe semanal % de penetracion tickets - penetracion ventas",
                 "FOLDER": "G:/Unidades compartidas/DATA PLUS/Informes - automaticos/PAGNIFIQUE/SHARE TICKETS"
@@ -14,7 +14,8 @@ configuration = {
             {
                 "NAME": "PAGNIFIQUE_RESULTADOS_PROMO",
                 "FUNCTION": "pagnifique_results",
-                "RECEIVER": "marcelo.ocampo@tata.com.uy, gcassou@pagnifique.com.uy, lhurtado@pagnifique.com.uy, dconde@pagnifique.com.uy, marcio.gonzalez@plus.uy, ebaratella@pagnifique.com.uy",
+                "RECEIVER": "Diego.Mendez02@grupobimbo.com, Enzo.Baratella@grupobimbo.com, Noelia.Malacria@grupobimbo.com, Sabrina.Cabrera@grupobimbo.com, Damiana.Conde@grupobimbo.com, marcio.gonzalez@gdn.com.uy, marcelo.ocampo@gdn.com.uy",
+                #"RECEIVER": "marcelo.ocampo@gdn.com.uy",
                 "SUBJECT": "Resultados de Promos - Pagnifique",
                 "FOLDER": "G:/Unidades compartidas/DATA PLUS/Informes - automaticos/PAGNIFIQUE/PROMOS"
             },
@@ -22,8 +23,7 @@ configuration = {
             {
                 "NAME": "PAGNIFIQUE_PENETRACION_MENSUAL",
                 "FUNCTION": "pagnifique_monthly_report",
-                "RECEIVER": "marcelo.ocampo@tata.com.uy, planeamiento@pagnifique.com.uy, mesadeoperaciones@pagnifique.com.uy, supervisores_plesir@pagnifique.com.uy, marcio.gonzalez@plus.uy, gcassou@pagnifique.com.uy, dconde@pagnifique.com.uy",
-                "SUBJECT": "Informe mensual % de penetracion tickets - penetracion ventas",
+                "RECEIVER": "Diego.Mendez02@grupobimbo.com, Enzo.Baratella@grupobimbo.com, Noelia.Malacria@grupobimbo.com, Sabrina.Cabrera@grupobimbo.com, Damiana.Conde@grupobimbo.com, marcio.gonzalez@gdn.com.uy, marcelo.ocampo@gdn.com.uy",
                 "FOLDER": "G:/Unidades compartidas/DATA PLUS/Informes - automaticos/PAGNIFIQUE/SHARE TICKETS"
             },
         "4":
@@ -38,7 +38,7 @@ configuration = {
             {
                 "NAME": "EVOLUCION_SOCIOS",
                 "FUNCTION": "clientes_evolution",
-                "RECEIVER": "marcelo.ocampo@tata.com.uy, julia.scipioni@tata.com.uy, ernesto.strauss@tata.com.uy",
+                "RECEIVER": "marcelo.ocampo@gdn.com.uy, ernesto.strauss@tata.com.uy",
                 "SUBJECT": "Evolucion Socios",
                 "FOLDER": "G:/Unidades compartidas/DATA PLUS/Informes - automaticos/EVOLUCION CLIENTES"
             }

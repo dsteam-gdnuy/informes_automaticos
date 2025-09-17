@@ -162,7 +162,8 @@ def pagnifique_results(fecha: str, tipo: str) -> None:
                         sender_pass= email_credentials['PASSCODE'],
                         receiver_address= information['RECEIVER'],
                         message_type= information['NAME'], 
-                        subject= information['SUBJECT'])
+                        subject= information['SUBJECT'],
+                        df=df)
 
     if email:
         print("Mail enviado correctamente")
