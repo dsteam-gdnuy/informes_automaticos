@@ -59,7 +59,8 @@ def pagnifique_report(fecha: str, tipo: int) -> None:
                         sender_pass= email_credentials['PASSCODE'],
                         receiver_address= information['RECEIVER'],
                         message_type= information['NAME'], 
-                        subject= information['SUBJECT'])
+                        subject= information['SUBJECT'],
+                        df=df)
 
     if email:
         print("Mail enviado correctamente")
@@ -111,7 +112,8 @@ def pagnifique_monthly_report(fecha: str, tipo: int) -> None:
                         sender_pass= email_credentials['PASSCODE'],
                         receiver_address= information['RECEIVER'],
                         message_type= information['NAME'], 
-                        subject= information['SUBJECT'])
+                        subject= information['SUBJECT'],
+                        df=df)
 
     if email:
         print("Mail enviado correctamente")
@@ -214,7 +216,8 @@ def compare_points_clients(fecha: str, tipo: str) -> None:
                         sender_pass= email_credentials['PASSCODE'],
                         receiver_address= information['RECEIVER'],
                         message_type= information['NAME'], 
-                        subject= information['SUBJECT'])
+                        subject= information['SUBJECT'],
+                        df=df)
 
     if email:
         print("Mail enviado correctamente")
@@ -265,7 +268,8 @@ def clientes_evolution(fecha: str, tipo: str) -> None:
                         sender_pass= email_credentials['PASSCODE'],
                         receiver_address= information['RECEIVER'],
                         message_type= information['NAME'], 
-                        subject= information['SUBJECT'])
+                        subject= information['SUBJECT'],
+                        df=df)
 
     if email:
         print("Mail enviado correctamente")

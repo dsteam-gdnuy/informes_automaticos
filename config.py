@@ -14,8 +14,8 @@ configuration = {
             {
                 "NAME": "PAGNIFIQUE_RESULTADOS_PROMO",
                 "FUNCTION": "pagnifique_results",
-                "RECEIVER": "Diego.Mendez02@grupobimbo.com, Enzo.Baratella@grupobimbo.com, Noelia.Malacria@grupobimbo.com, Sabrina.Cabrera@grupobimbo.com, Damiana.Conde@grupobimbo.com, marcio.gonzalez@gdn.com.uy, marcelo.ocampo@gdn.com.uy",
-                #"RECEIVER": "marcelo.ocampo@gdn.com.uy",
+                #"RECEIVER": "Diego.Mendez02@grupobimbo.com, Enzo.Baratella@grupobimbo.com, Noelia.Malacria@grupobimbo.com, Sabrina.Cabrera@grupobimbo.com, Damiana.Conde@grupobimbo.com, marcio.gonzalez@gdn.com.uy, marcelo.ocampo@gdn.com.uy",
+                "RECEIVER": "marcelo.ocampo@gdn.com.uy",
                 "SUBJECT": "Resultados de Promos - Pagnifique",
                 "FOLDER": "G:/Unidades compartidas/DATA PLUS/Informes - automaticos/PAGNIFIQUE/PROMOS"
             },
@@ -24,6 +24,8 @@ configuration = {
                 "NAME": "PAGNIFIQUE_PENETRACION_MENSUAL",
                 "FUNCTION": "pagnifique_monthly_report",
                 "RECEIVER": "Diego.Mendez02@grupobimbo.com, Enzo.Baratella@grupobimbo.com, Noelia.Malacria@grupobimbo.com, Sabrina.Cabrera@grupobimbo.com, Damiana.Conde@grupobimbo.com, marcio.gonzalez@gdn.com.uy, marcelo.ocampo@gdn.com.uy",
+                #"RECEIVER": "marcelo.ocampo@gdn.com.uy",
+                "SUBJECT": "Penetracion mensual - Pagnifique",
                 "FOLDER": "G:/Unidades compartidas/DATA PLUS/Informes - automaticos/PAGNIFIQUE/SHARE TICKETS"
             },
         "4":
